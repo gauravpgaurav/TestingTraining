@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.training.samples.CurrencyConverter;
+
 public class FirstTestCase {
 
 	@Before
@@ -20,9 +22,14 @@ public class FirstTestCase {
 
 	@Test
 	public void test1() {
-		fail("Not yet implemented");
+		// fail("Not yet implemented");
+
+		CurrencyConverter conv = new CurrencyConverter();
+		double actual = conv.dollarToRupees(100);
+
+		assertEquals(6819, actual, 0);
 	}
-	
+
 	@Test
 	public void test2() {
 		fail("Not yet implemented");
