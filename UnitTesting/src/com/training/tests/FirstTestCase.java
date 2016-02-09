@@ -25,14 +25,18 @@ public class FirstTestCase {
 		// fail("Not yet implemented");
 
 		CurrencyConverter conv = new CurrencyConverter();
-		double actual = conv.dollarToRupees(100);
+		double actual = conv.dollarToRupees(10);
 
-		assertEquals(6819, actual, 0);
+		assertEquals(681.9, actual, 0);
+		// Delta depicts -/+ value permiteed (eg. Error Correction)
 	}
 
 	@Test
 	public void test2() {
-		fail("Not yet implemented");
+		
+		CurrencyConverter conv = new CurrencyConverter();
+		double actual = conv.dollarToRupees(10);
+		assertNotNull(actual);
 	}
 
 }
