@@ -4,7 +4,7 @@ import java.util.*;
 
 public class StudentList {
 
-	Set<String> names;
+	private Set<String> names;
 	public StudentList()
 	{
 		names = new HashSet<String>();
