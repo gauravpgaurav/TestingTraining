@@ -7,7 +7,8 @@ public class PerfectNumber {
 	private int number;
 	private int sum;
 	private ArrayList<Integer> factorArray;
-
+	private ArrayList<Integer> perfectNumberArray;
+	
 	private void generateFactorArray() {
 
 		for (int i = 1; i <= number; i++) {
@@ -17,20 +18,28 @@ public class PerfectNumber {
 		}
 	}
 
-	public int getNumber() {
-		return number;
+//	public int getNumber() {
+//		return number;
+//	}
+//
+//	public void setNumber(int number) {
+//		this.number = number;
+//	}
+//
+//	public ArrayList<Integer> getFactorArray() {
+//		return factorArray;
+//	}
+//
+//	public void setFactorArray(ArrayList<Integer> factorArray) {
+//		this.factorArray = factorArray;
+//	}
+
+	public ArrayList<Integer> getPerfectNumberArray() {
+		return perfectNumberArray;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	public ArrayList<Integer> getFactorArray() {
-		return factorArray;
-	}
-
-	public void setFactorArray(ArrayList<Integer> factorArray) {
-		this.factorArray = factorArray;
+	public void setPerfectNumberArray(ArrayList<Integer> perfectNumberArray) {
+		this.perfectNumberArray = perfectNumberArray;
 	}
 
 	public PerfectNumber(int number) {
@@ -60,12 +69,15 @@ public class PerfectNumber {
 
 	public void printPerfectNumberList(int limit) {
 
+		perfectNumberArray = new ArrayList<>();
 		for (int i = 1; i <= limit; i++) {
 
 			PerfectNumber tempNumber = new PerfectNumber(i);
 			if (tempNumber.isPerfectNumber())
-				System.out.print(i + ",");
+				perfectNumberArray.add(i);
 		}
+		setPerfectNumberArray(perfectNumberArray);
+		
 	}
 
 	@Override

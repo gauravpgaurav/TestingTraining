@@ -2,6 +2,8 @@ package com.training.tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,7 +54,13 @@ public class PerfectNumberTest {
 
 		number = new PerfectNumber(6);
 		number.printPerfectNumberList(8130);
-
+		ArrayList<Integer> expected = new ArrayList<>();
+		expected.add(6);
+		expected.add(28);
+		expected.add(496);
+		expected.add(8128);
+		ArrayList<Integer> actual = number.getPerfectNumberArray(); 
+		assertEquals(expected, actual);
 	}
 
 }
