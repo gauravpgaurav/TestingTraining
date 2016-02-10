@@ -102,13 +102,13 @@ public class BankAccountTestCase {
 	}
 
 	@Test(timeout = 100)
-	public void testNoLoop() {
+	public void testNoLoopInWithdraw() {
 		try {
 			account = new BankAccount("101", "Gaurav", 10000);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		double actual = account.deposit(30000);
-		assertEquals(40000, actual, 0);
+		double actual = account.withdraw(3000);
+		assertEquals(7000, actual, 0);
 	}
 }

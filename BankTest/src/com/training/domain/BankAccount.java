@@ -32,13 +32,13 @@ public class BankAccount {
 
 	public BankAccount(String accountNumber, String accountHolderName, double balance) {
 
-		if (accountNumber == null || accountHolderName == null || balance < 0) 
+		if (accountNumber == null || accountHolderName == null || balance < 0)
 			throw new NullPointerException();
-		
-			this.accountNumber = accountNumber;
-			this.accountHolderName = accountHolderName;
-			this.balance = balance;
-		
+
+		this.accountNumber = accountNumber;
+		this.accountHolderName = accountHolderName;
+		this.balance = balance;
+
 	}
 
 	public double deposit(double amountDeposited) {
@@ -48,6 +48,17 @@ public class BankAccount {
 	}
 
 	public double withdraw(double amountWithdrawn) {
+
+		/**
+		 * For Testing Loop Test
+		 */
+		
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			System.out.println(e.getMessage());
+//		}
+
 		if (balance >= amountWithdrawn && amountWithdrawn >= 0)
 			balance -= amountWithdrawn;
 
