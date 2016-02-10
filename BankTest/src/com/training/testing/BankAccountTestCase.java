@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import com.training.domain.BankAccount;
 
+
 public class BankAccountTestCase {
 
 	BankAccount account = null;
@@ -40,7 +41,7 @@ public class BankAccountTestCase {
 	}
 
 	@Test
-	public void testConstructorsInitialization() {
+	public void testAccountNumberInitialization() {
 
 		try {
 			account = new BankAccount("101", "Gaurav", 10000);
@@ -48,7 +49,27 @@ public class BankAccountTestCase {
 			System.out.println(e.getMessage());
 		}
 		assertEquals("101", account.getAccountNumber());
+	}
+
+	@Test
+	public void testAccountHolderNameInitialization() {
+
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		assertEquals("Gaurav", account.getAccountHolderName());
+	}
+
+	@Test
+	public void testAccountBalanceInitialization() {
+
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		assertEquals(10000, account.getBalance(), 0);
 	}
 
@@ -85,6 +106,7 @@ public class BankAccountTestCase {
 			System.out.println(e.getMessage());
 		}
 		Double actual = account.deposit(30000);
+		
 		if (!(actual instanceof Double))
 			fail("Deposit Return Type Not double");
 	}
