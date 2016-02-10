@@ -33,15 +33,14 @@ public class PerfectNumber {
 		this.factorArray = factorArray;
 	}
 
-	public PerfectNumber(int number) throws ExceptionInInitializerError{
+	public PerfectNumber(int number) {
 		super();
 		if (number > 0) {
 			this.number = number;
 			factorArray = new ArrayList<>();
 			generateFactorArray();
-		}
-		else
-			throw new ExceptionInInitializerError("Not Positive Number");
+		} else
+			throw new IllegalArgumentException();
 	}
 
 	public Boolean isPerfectNumber() {

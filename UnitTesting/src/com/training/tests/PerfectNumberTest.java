@@ -20,14 +20,22 @@ public class PerfectNumberTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test(expected = ExceptionInInitializerError.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testPositiveInput() {
-		try {
-			number = new PerfectNumber(2);
-			System.out.println(number);
-		} catch (ExceptionInInitializerError e) {
-			System.out.println(e.getMessage());
-		}
+
+		number = new PerfectNumber(-32);
+		System.out.println(number);
+
+	}
+
+	@Test
+	public void testBoolean() {
+
+		number = new PerfectNumber(32);
+		Boolean actual = number.isPerfectNumber();
+		if (actual.getClass() != Boolean.class)
+			fail("Not Boolean");
+
 	}
 
 	@Test
