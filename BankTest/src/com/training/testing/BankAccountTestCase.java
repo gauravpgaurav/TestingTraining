@@ -10,6 +10,8 @@ import com.training.domain.BankAccount;
 
 public class BankAccountTestCase {
 
+	BankAccount account = null;
+
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -19,23 +21,32 @@ public class BankAccountTestCase {
 	}
 
 	@Test
-	public void testNullConstructors() {
+	public void testNullValuesConstructors() {
 
-		BankAccount account;
 		try {
-			account = new BankAccount(null, null, 0);
-			assertNull(account);
+			BankAccount account2 = new BankAccount(null, null, 0);
+			assertNull(account2);
 		} catch (Exception e) {
-
 			System.out.println(e.getMessage());
 		}
 
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void testNullPointerConstructors() {
+
+		BankAccount account2 = new BankAccount(null, null, 0);
+		assertNull(account2);
+	}
+
 	@Test
 	public void testConstructorsInitialization() {
 
-		BankAccount account = new BankAccount("101", "Gaurav", 10000);
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		assertEquals("101", account.getAccountNumber());
 		assertEquals("Gaurav", account.getAccountHolderName());
 		assertEquals(10000, account.getBalance(), 0);
@@ -44,7 +55,11 @@ public class BankAccountTestCase {
 	@Test
 	public void testDepositPositive() {
 
-		BankAccount account = new BankAccount("101", "Gaurav", 10000);
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		double actual = account.deposit(-30000);
 		assertEquals(10000, actual, 0);
 	}
@@ -52,16 +67,48 @@ public class BankAccountTestCase {
 	@Test
 	public void testDepositValue() {
 
-		BankAccount account = new BankAccount("101", "Gaurav", 10000);
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		double actual = account.deposit(30000);
 		assertEquals(40000, actual, 0);
 	}
+
+	@Test
+	public void testDepositValueReturnType() {
+
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		Double actual = account.deposit(30000);
+		if (!(actual instanceof Double))
+			fail("Deposit Return Type Not double");
+	}
+
 	@Test
 	public void testWithdrawlNegative() {
 
-		BankAccount account = new BankAccount("101", "Gaurav", 10000);
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		double actual = account.withdraw(30000);
 		assertEquals(10000, actual, 0);
 	}
 
+	@Test(timeout = 100)
+	public void testNoLoop() {
+		try {
+			account = new BankAccount("101", "Gaurav", 10000);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		double actual = account.deposit(30000);
+		assertEquals(40000, actual, 0);
+	}
 }

@@ -33,7 +33,7 @@ public class BankAccount {
 	public BankAccount(String accountNumber, String accountHolderName, double balance) {
 
 		if (accountNumber == null || accountHolderName == null || balance < 0) 
-			throw new IllegalArgumentException( "Null values not Allowed !");
+			throw new NullPointerException();
 		
 			this.accountNumber = accountNumber;
 			this.accountHolderName = accountHolderName;
