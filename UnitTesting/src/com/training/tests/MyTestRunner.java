@@ -6,8 +6,8 @@ import org.junit.runner.Result;
 public class MyTestRunner {
 
 	public static void main(String[] args){
-		Result result = JUnitCore.runClasses(MyTestSuite.class);
-		
+	//	Result result = JUnitCore.runClasses(MyTestSuite.class);
+		//Incomplete
 		
 	}
 }
